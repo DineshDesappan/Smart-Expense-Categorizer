@@ -14,7 +14,8 @@ function App() {
 
   const fetchExpenses = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/expenses');
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/expenses`);
       if (!response.ok) {
         throw new Error('Failed to fetch expenses');
       }
@@ -32,7 +33,8 @@ function App() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:5000/api/expenses', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/expenses`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sentence })
