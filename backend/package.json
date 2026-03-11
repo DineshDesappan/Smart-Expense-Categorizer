@@ -1,0 +1,18 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --watch server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "mongodb": "^6.21.0"
+  }
+}

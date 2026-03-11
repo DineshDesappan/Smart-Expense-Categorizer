@@ -1,0 +1,447 @@
+/* Modern Virtual UI CSS - Black & White Theme with Image */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #050505;
+  --bg-secondary: rgba(15, 15, 15, 0.65);
+  --bg-tertiary: rgba(30, 30, 30, 0.65);
+  
+  --primary: #ffffff;
+  --primary-glow: rgba(255, 255, 255, 0.3);
+  --primary-hover: #cccccc;
+  
+  --text-main: #ffffff;
+  --text-muted: #a5a5a5;
+  
+  --border-color: rgba(255, 255, 255, 0.12);
+  --border-highlight: rgba(255, 255, 255, 0.3);
+  
+  --danger: #ef4444;
+  --success: #10b981;
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-color);
+  /* Unsplash dark abstract fluid background */
+  background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Dark overlay to ensure text remains readable */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.app-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.header {
+  margin-bottom: 3.5rem;
+  text-align: center;
+}
+
+.header-content {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 0.6rem;
+}
+
+.logo h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* Layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Glass Panels & Cards */
+.card {
+  background: var(--bg-secondary);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  transition: var(--transition);
+}
+
+.glass-panel {
+  background: rgba(10, 10, 10, 0.5);
+}
+
+.card:hover {
+  border-color: var(--border-highlight);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8);
+  transform: translateY(-2px);
+}
+
+.card h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Forms */
+.expense-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+textarea {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 1.05rem;
+  resize: none;
+  transition: var(--transition);
+  position: relative;
+  z-index: 2;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+textarea::placeholder {
+  color: #777;
+  line-height: 1.5;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.submit-btn {
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  background: var(--primary-hover);
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.25);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.2);
+  color: #888;
+  box-shadow: none;
+}
+
+/* Overview Card */
+.overview-card {
+  background: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.overview-header h3 {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #cccccc;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.total-amount {
+  display: flex;
+  align-items: center;
+  font-size: 3.2rem;
+  font-weight: 700;
+  gap: 4px;
+  margin-bottom: 0.5rem;
+  color: white;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.overview-sub {
+  color: #999;
+  font-size: 0.95rem;
+}
+
+/* Error */
+.error-message {
+  color: #000;
+  background: #fff;
+  border: 1px solid #000;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+/* Table Section */
+.table-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.table-header-row h2 {
+  margin: 0;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.table-responsive {
+  overflow-x: auto;
+  border-radius: var(--radius-sm);
+}
+
+.expense-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.expense-table th {
+  text-align: left;
+  padding: 1.2rem 1rem;
+  color: #bbbbbb;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.th-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.expense-table td {
+  padding: 1.4rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  vertical-align: middle;
+}
+
+.expense-table tbody tr {
+  transition: var(--transition);
+}
+
+.expense-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.expense-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.date-cell {
+  color: #aaaaaa;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.merchant-cell {
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.item-cell {
+  color: #e2e8f0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Clean Black & White Category Badges */
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Adding generic hover for badges just for aesthetic */
+.category-badge:hover {
+  background: #ffffff;
+  color: #000000;
+  transition: all 0.2s ease;
+}
+
+.amount-col {
+  text-align: right !important;
+}
+
+.amount-col .th-content {
+  justify-content: flex-end;
+}
+
+.amount-cell {
+  text-align: right;
+  font-weight: 700;
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: rgba(0,0,0,0.3);
+  border-radius: var(--radius-md);
+  border: 1px dashed rgba(255,255,255,0.2);
+}
+
+.empty-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  filter: grayscale(100%);
+}
+
+.empty-state p {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+  color: #fff;
+}
+
+.empty-state span {
+  color: #999;
+  font-size: 1rem;
+  display: block;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Animations */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
