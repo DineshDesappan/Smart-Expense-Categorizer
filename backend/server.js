@@ -31,7 +31,7 @@ async function connectDB() {
 connectDB();
 
 // Setup Google Gen AI SDK
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "YOUR_KEY_HERE");
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 
 app.get('/api/expenses', async (req, res) => {
